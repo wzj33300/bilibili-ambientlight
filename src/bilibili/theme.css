@@ -1,0 +1,27 @@
+/* Only video pages with an active player receive the optional dark theme. */
+html[data-bili-ambientlight-dark] {
+  color-scheme: dark;
+  --bg1: #14151b;
+  --bg2: #1b1d25;
+  --bg3: #242631;
+  --text1: #e6e7ef;
+  --text2: #b5b8c7;
+  --text3: #979baa;
+  --line_regular: #333642;
+  --line_light: #292c36;
+}
+html[data-bili-ambientlight-dark] body,
+html[data-bili-ambientlight-dark] #app,
+html[data-bili-ambientlight-dark] .video-container-v1,
+html[data-bili-ambientlight-dark] .video-container-v2,
+html[data-bili-ambientlight-dark] .main-container,
+html[data-bili-ambientlight-dark] .main-container .plp-r,
+html[data-bili-ambientlight-dark] .playlist-container {
+  background-color: #14151b !important;
+  color: #e6e7ef;
+}
+html[data-bili-ambientlight-dark] .video-title,
+html[data-bili-ambientlight-dark] .video-desc-container,
+html[data-bili-ambientlight-dark] .video-page-card-small .title {
+  color: #e6e7ef !important;
+}

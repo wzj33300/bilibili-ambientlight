@@ -1,73 +1,90 @@
-[![Google Chrome Web rating](https://img.shields.io/chrome-web-store/rating/paponcgjfojgemddooebbgniglhkajkj?logo=googlechrome&color=brightgreen)](https://chrome.google.com/webstore/detail/youtube-ambilight/paponcgjfojgemddooebbgniglhkajkj) [![Google Chrome users](https://img.shields.io/chrome-web-store/users/paponcgjfojgemddooebbgniglhkajkj?logo=googlechrome&color=blue)](https://chrome.google.com/webstore/detail/youtube-ambilight/paponcgjfojgemddooebbgniglhkajkj) &nbsp; [![Microsoft Edge rating](https://img.shields.io/badge/dynamic/json?label=rating&suffix=/5&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fcmggdjjjfembmemhleknmfpakmgggjcf&logo=embarcadero&color=brightgreen)](https://microsoftedge.microsoft.com/addons/detail/cmggdjjjfembmemhleknmfpakmgggjcf) [![Microsoft Edge users](https://img.shields.io/badge/dynamic/json?label=users&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fcmggdjjjfembmemhleknmfpakmgggjcf&logo=embarcadero&color=blue)](https://microsoftedge.microsoft.com/addons/detail/cmggdjjjfembmemhleknmfpakmgggjcf) &nbsp; [![Firefox rating](https://img.shields.io/amo/rating/ambient-light-for-youtube?logo=firefoxbrowser)](https://addons.mozilla.org/en-US/firefox/addon/ambient-light-for-youtube/) [![Firefox users](https://img.shields.io/amo/users/ambient-light-for-youtube?logo=firefoxbrowser&color=blue)](https://addons.mozilla.org/en-US/firefox/addon/ambient-light-for-youtube/) &nbsp; [![Opera rating](https://img.shields.io/badge/rating-4.4/5-brightgreen?logo=opera)](https://addons.opera.com/nl/extensions/details/youtube-ambilight/) [![Opera users](https://img.shields.io/badge/downloads-20k-blue?logo=opera)](https://addons.opera.com/nl/extensions/details/youtube-ambilight/)
+# Bilibili Ambient Light
 
-<a href="https://ko-fi.com/G2G59EK8L" rel="noopener">
-  <img align="right" src="https://github.com/WesselKroos/youtube-ambilight/blob/master/src/images/donate.svg?raw=true" title="Support me via a donation">
-</a>
+Ambient lighting for Bilibili in desktop **Chrome and Edge 121+**. The extension extends video colors around the player and provides controls for lighting, cropping, page appearance, and performance.
 
-[![Ambient light for YouTube™](https://github.com/WesselKroos/youtube-ambilight/blob/master/assets/heading.png?raw=true)](https://github.com/WesselKroos/youtube-ambilight#readme)
+Version **0.2.3** includes Chinese and English interfaces and 75 functional settings. It uses the rendering engine from [WesselKroos/youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight) 2.38.17 with a Bilibili player and page adapter.
 
-![Preview](https://github.com/WesselKroos/chrome-youtube-ambilight/blob/master/assets/readme/screenshot-1.jpg?raw=true)
+## Install
 
+1. Download **bilibili-ambientlight-0.2.3.zip** from the [latest release](https://github.com/wzj33300/bilibili-ambientlight/releases/latest) and extract it.
+2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge, then enable **Developer mode**.
+3. Click **Load unpacked** and select the extracted folder containing `manifest.json`.
+4. Open or refresh a Bilibili video page.
 
-# Ambient light for YouTube™
-Immerse yourself in YouTube videos with ambient light!
+The release ZIP contains the ready-to-load extension. GitHub's **Source code** archives are for development. To update an existing installation, replace its files, click **Reload** on the extension card, and refresh video tabs.
 
-## Installation
-Go to the extensions site of your browser and add the extension:
+## Use
 
-[![Google Chrome Web Store](https://github.com/WesselKroos/youtube-ambilight/blob/master/assets/browsers/Google%20Chrome.png?raw=true)](https://chrome.google.com/webstore/detail/youtube-ambilight/paponcgjfojgemddooebbgniglhkajkj)
+Open the player’s ambient-light icon for quick adjustments, or the browser extension icon for the complete settings page.
 
-[![Microsoft Edge Store](https://github.com/WesselKroos/chrome-youtube-ambilight/blob/master/assets/browsers/Microsoft%20Edge.png?raw=true)](https://microsoftedge.microsoft.com/addons/detail/cmggdjjjfembmemhleknmfpakmgggjcf)
+The four settings categories are **Light**, **Video**, **Page**, and **More**. Brightness, spread, softness, and saturation are available immediately. The full settings page also supports search across categories and direct numeric input.
 
-[![Firefox Add-ons](https://github.com/WesselKroos/chrome-youtube-ambilight/blob/master/assets/browsers/Firefox.png?raw=true)](https://addons.mozilla.org/en-US/firefox/addon/ambient-light-for-youtube/)
+### Language
 
-[![Opera addons](https://github.com/WesselKroos/youtube-ambilight/blob/master/assets/browsers/Opera.png?raw=true)](https://addons.opera.com/nl/extensions/details/youtube-ambilight/)
+Choose **Auto / 自动**, **简体中文**, or **English** from the language selector in either settings header. Auto uses Simplified Chinese for Chinese browser locales and English for other locales. Changes apply immediately across open extension interfaces while preserving video settings.
 
+The language preference is saved locally and included in JSON and manual browser-sync backups. The extension name displayed by Chrome or Edge follows the browser language.
 
-## Minimum requirements
+### Shortcuts and backups
 
-### Performance
-A video card with a score of at least 1000 points in the PassMark Video Card Benchmark is recommended.
-Check your video card's score here:
+| Default key | Action |
+|---|---|
+| `G` | Toggle ambient lighting |
+| `B` | Toggle horizontal-bar detection |
+| `V` | Toggle vertical-bar detection |
+| `H` | Fill the video after cropping |
 
-https://www.videocardbenchmark.net/gpu_list.php
+Edit shortcuts by clicking their letters in the player menu or using the full settings page. The **More** category contains JSON import/export, file backups, browser-account backup/restore, and reset controls. Browser-account synchronization depends on the browser’s sync settings.
 
-With a score lower than 1000 the extension will still work but it is likely that the YouTube video page will be slow and/or stuttering.
-> To troubleshoot performance problems or maximize the performance you can follow the checks and steps in the [Troubleshoot guide](https://github.com/WesselKroos/youtube-ambilight/blob/master/TROUBLESHOOT.md)
+Common settings from version 0.1 migrate on first use. Spread values are converted approximately to the current rendering model.
 
+## Features
 
-### Browser versions
-| Browser  | Version | Reason |
-| -------- | ------- | ------ |
-| Chromium | 80      | [Optional chaining operator (?.)](https://caniuse.com/mdn-javascript_operators_optional_chaining) |
-| Firefox  | 74      | [Optional chaining operator (?.)](https://caniuse.com/mdn-javascript_operators_optional_chaining) |
+- **Lighting:** WebGL and Canvas2D, blur, spread, fade curves, four lighting directions, brightness, contrast, saturation, vibrance, and HDR processing.
+- **Motion and image quality:** frame blending, color fading, flicker reduction, ambient-light and video debanding, LCD/OLED blend modes, and a synchronized video overlay.
+- **Cropping:** automatic horizontal, vertical, and colored-bar detection, detection tolerance and history averaging, manual crop controls, automatic fill, and reset on video changes.
+- **Page integration:** normal, wide, and fullscreen layouts; per-view video scaling; video shadows; immersive wide mode; page themes; header/content opacity and shadows; and recommendation-list scrolling.
+- **Performance:** resolution and frame-rate limits, frame synchronization, background scheduling, local static-frame energy saving, and rendering/detection statistics.
+- **Playback lifecycle:** episode changes, SPA navigation, video-element replacement, and settings updates across tabs.
 
+At the top of the page, the header is transparent; after scrolling, it uses the configured background opacity. Page lighting hides during picture-in-picture by default and returns on exit. A setting can keep page lighting enabled during PiP.
 
-## Privacy & Security
-Read the [privacy policy](/PRIVACY-POLICY.md)
+See the [feature inventory](FEATURE-PARITY.md) for all 75 settings and platform integration details.
 
+## Compatibility and verification
 
-## Report, request or contribute
-Feel free to 
-- contribute to the project at [/youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight)
-- report bugs at [/youtube-ambilight/issues](https://github.com/WesselKroos/youtube-ambilight/issues)
-- request a feature at [/youtube-ambilight/issues](https://github.com/WesselKroos/youtube-ambilight/issues)
-- or ask a question at [/youtube-ambilight/issues](https://github.com/WesselKroos/youtube-ambilight/issues)
+The extension supports browser-readable HTML5 video on desktop Bilibili. Real-page checks cover regular video playback, episode switching, wide mode, web fullscreen, header styling, picture-in-picture, and language selection. The adapters also cover bangumi, course, list, and embedded-player routes.
 
+HDR, VR, native fullscreen, and individual bangumi/course/embed scenarios require further real-page validation. DRM-protected or unreadable cross-origin video, `bwp-video`-only playback, closed shadow roots, live streams, and the mobile site are unsupported. Site changes and other player extensions may affect compatibility.
 
-## Support me
-[![Support me via a donation](https://github.com/WesselKroos/youtube-ambilight/blob/master/src/images/donate.svg?raw=true)](https://ko-fi.com/G2G59EK8L)
-
+Validation includes **15 Node tests** and **16 Chrome WebGL checks**. See [TESTING.md](TESTING.md) for test methods, version coverage, and open verification items.
 
 ## Development
-1. Install [Node (LTS)](https://nodejs.org/en/download/)
-2. In the terminal/commandline enter `npm install`.
-3. In the terminal/commandline enter `npm run build`. A `/dist` folder will be generated which contains all the generated files of the extension.
-4. Add the extension to Chrome:
-    1. In Chrome go to the url [chrome://extensions/](chrome://extensions/).
-    2. Turn on the `Developer mode` toggle.
-    3. Click `Load unpacked` and select the `/dist` folder.
-    4. `Ambient light for YouTube™` has been added to the list of extensions.
-5. After you've modified a file in the `/src` folder follow these steps:
-    1. In the terminal/commandline enter `npm run build`
-    2. In Chrome go to the url [chrome://extensions/](chrome://extensions/) and click the refresh/update button in the card of the extension.
+
+Use Node.js 22.5.1 or later:
+
+```sh
+npm ci --ignore-scripts
+npm run build
+npm run lint
+npm test
+```
+
+Load the generated `dist` folder as an unpacked extension. To run the local browser fixture:
+
+```sh
+npm run build:full
+npm run demo:full
+```
+
+Open `http://127.0.0.1:4319` and run the browser self-test. The fixture uses synthetic local video streams and isolated session storage. The test build is written to `dist-full`.
+
+The platform adapter lives in `src/bilibili/full`; the upstream rendering core is in `src/scripts/libs`. An AST-based build plugin replaces platform-specific methods and validates the expected upstream structure. Regression tests compare key rendering methods with the pinned source. `build:basic` and `build:youtube` are separate legacy build targets; use `build` for this release.
+
+Regenerate the setting inventory with `node tools/feature-report.mjs`.
+
+## Privacy and license
+
+Video processing stays on the device. The extension requests the `storage` permission and runs content scripts on `www.bilibili.com` and `player.bilibili.com`. Read the [privacy policy](PRIVACY-POLICY.md) for storage and backup behavior.
+
+Released under the [MIT license](LICENSE), with upstream copyright and attribution preserved in [NOTICE.md](NOTICE.md). This is an independent project, unaffiliated with Bilibili or Wessel Kroos. Report issues in [this repository](https://github.com/wzj33300/bilibili-ambientlight/issues).

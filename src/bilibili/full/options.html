@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bilibili 环境光 · 设置</title><link rel="stylesheet" href="options.css"></head>
+<body>
+<header class="app-header"><div class="wordmark"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1h8M8 23h8M1 8v8M23 8v8" stroke="currentColor" stroke-linecap="round"/></svg><h1>环境光</h1><span>BILIBILI</span></div><div id="master"></div></header>
+<div class="workspace"><aside><nav id="navigation" aria-label="设置分类"></nav><p class="sidebar-note">画面仅在本机处理<br>Ambient Light · 0.2.3</p></aside><div class="content">
+<div class="page-heading"><div><h2 id="page-title">光效设置</h2><p id="page-description">调整光晕的强度、范围与柔和程度</p></div><div class="searchbar"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 5 5" stroke="currentColor" stroke-width="1.5"/></svg><input id="search" type="search" placeholder="搜索设置" aria-label="搜索设置"><kbd>/</kbd></div></div>
+<main id="settings"></main><p id="empty" hidden>没有匹配的设置</p>
+<details class="utility" hidden><summary>备份与恢复</summary><div class="utility-body"><p>保存你的参数，或从另一台设备恢复。</p>
+<div class="button-row"><button id="download">下载设置</button><label class="file-button">读取文件<input id="file" type="file" accept=".json,application/json"></label><button id="reset" class="muted">恢复默认</button></div>
+<details><summary>复制或粘贴 JSON</summary><div class="button-row"><button id="export">生成 JSON</button><button id="import">粘贴 JSON</button></div><details id="transfer"><summary>设置 JSON</summary><textarea id="json" aria-label="设置 JSON" spellcheck="false"></textarea><button id="apply">应用 JSON</button></details></details>
+<details><summary>浏览器账号同步</summary><p>手动备份设置和快捷键。跨设备同步取决于 Chrome 账号的同步设置。</p><div class="button-row"><button id="sync-save">备份到账号</button><button id="sync-load">从账号恢复</button></div></details>
+</div></details>
+<footer><p id="status" role="status">自动保存 · 更换渲染器后请刷新视频页</p><a href="https://github.com/wzj33300/bilibili-ambientlight" target="_blank" rel="noopener">开源项目 ↗</a></footer>
+</div></div><script src="options.js"></script></body></html>

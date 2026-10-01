@@ -1,4 +1,4 @@
-import { Canvas, ctxOptions, SafeOffscreenCanvas } from './generic';
+import { Canvas, ctxOptions, SafeOffscreenCanvas } from './generic.js';
 const WIDTH = 512;
 const HEIGHT = 512;
 

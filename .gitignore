@@ -4,3 +4,8 @@
 /sourcecodes
 /sourcemaps
 .env.local
+/.npm-cache
+/artifacts
+/demo/bundle.js
+/demo/bundle.js.map
+/dist-full

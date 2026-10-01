@@ -1,14 +1,27 @@
 # Privacy policy
-- This extension only runs on tabs that start with the url https://www.youtube.com. The extension will only activate the ambient light effect on YouTube's /watch page
-- The only requests being sent are crash reports. (But crash reports can be turned off.) No other requests are sent to any webserver, website or api. But in case a crash occurs the report is sent to [Sentri.io](https://sentry.io) and will always be deleted after 30 days. Because the only goal of these crash reports is to fix the crash.
 
-## Crash report data
-Crash reports, and individual groups of data, can be turned off. But in case a crash report is sent it could contain:
-- The url and video ID being watched at the time of the crash
-- Anonymous technical data
-    - Browser version
-    - Operating system version
-    - Display capabilities
-    - Videoplayer state (Does not contain the video id or title)
-    - YouTube layout state (Does not contain your YouTube account data)
-- Ambient light state and error information
+This policy applies to Bilibili Ambient Light 0.2.3 built with `npm run build`.
+
+## Video and page processing
+
+Video frames are processed locally with Canvas or WebGL. Bar detection and energy saving inspect downscaled frame pixels on the device. Frames are neither saved nor uploaded.
+
+The extension reads the current playback route to initialize lighting, handle episode changes, and reset cropping. It does not collect account details, cookies, watch history, or page body text. Content scripts run on `www.bilibili.com` and `player.bilibili.com`, with lighting activated on supported playback routes.
+
+## Settings and backups
+
+Settings, shortcuts, and language preference are saved in `chrome.storage.local`.
+
+JSON import and export are initiated by the user and contain these preferences. The manual account-backup action writes the same data to `chrome.storage.sync`; cross-device synchronization follows the browser account’s configuration.
+
+## Diagnostics and external links
+
+The Bilibili runtime sends no telemetry or crash reports. Errors are recorded in the local browser console. Rendering and detection use local code and frame data.
+
+Project, help, and donation links open when clicked. Those websites operate under their own privacy policies.
+
+## Removal
+
+Disable or remove the extension, then refresh open Bilibili tabs to remove active content scripts. Extension storage and synchronized backups are managed by the browser.
+
+The original upstream policy is preserved in `PRIVACY-POLICY.upstream.md` as historical project documentation. This policy describes the Bilibili release.

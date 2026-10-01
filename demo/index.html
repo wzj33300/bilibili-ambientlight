@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bilibili 环境光 · 本地验证</title>
+  <link rel="stylesheet" href="/theme.css">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#14151b;color:#eeeef7;font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}
+    main{max-width:1100px;margin:40px auto;padding:0 36px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+    .brand{font-weight:650;letter-spacing:.04em}.tag{font-size:12px;color:#abaebc}h1{font-size:27px;margin:0 0 8px}p{color:#a7aaba;margin:0}
+    .stage{padding:75px 80px 90px}.bpx-player-container{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:5px;box-shadow:0 10px 40px #0008}
+    video{width:100%;height:100%;object-fit:contain}.danmaku{position:absolute;top:30px;left:30px;color:white;text-shadow:0 2px 3px #000;font-size:17px}
+    .controls{position:absolute;bottom:12px;left:20px;font-size:12px;color:#ffffffbd}.toolbar{position:relative;z-index:10;display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+    button{cursor:pointer;background:#252733;border:1px solid #444555;color:#e6e2f2;border-radius:8px;padding:8px 12px;font:inherit}
+    button:hover{border-color:#b59de8}#diagnostics{font:12px/1.7 ui-monospace,monospace;white-space:pre-wrap;color:#bfc5cd;background:#1a1c24;padding:18px;border-radius:10px}
+    .note{font-size:12px;margin:18px 0}.wide .stage{padding-left:0;padding-right:0}
+  </style>
+</head>
+<body><main>
+  <header><span class="brand">✦ BILIBILI AMBIENT LIGHT</span><span class="tag">LOCAL PLAYBACK LAB / 0.1.0</span></header>
+  <h1>让画面的色彩，延伸到屏幕之外。</h1>
+  <p>实际视频流 · 上游渐隐算法 · B 站播放器结构</p>
+  <div class="stage"><div class="bpx-player-container"><div class="bpx-player-video-wrap"><video autoplay muted playsinline></video></div><span class="danmaku">弹幕与原画保持清晰，不受光晕覆盖</span><span class="controls">▶ &nbsp; LOCAL COLOR STUDY &nbsp; ━━━━━━━━━━━</span></div></div>
+  <div class="toolbar"><button id="play">暂停 / 继续</button><button id="replace">切集：替换播放器</button><button id="wide">宽屏</button><button id="route">模拟离开视频页</button><button id="test">运行浏览器自检</button></div>
+  <p class="note">此页使用本地生成的 Canvas 视频流，无网络媒体请求。正式扩展仅在 B 站运行；此测试页不安装扩展。</p>
+  <pre id="diagnostics" role="status">正在初始化视频…</pre>
+</main><script type="module" src="/bundle.js"></script></body></html>

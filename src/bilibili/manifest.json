@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Bilibili 环境光 · Ambient Light",
+  "version": "0.1.0",
+  "description": "让哔哩哔哩视频的色彩延伸到播放器周围。支持亮度、扩散、柔化、深色背景和帧率设置。",
+  "minimum_chrome_version": "121",
+  "icons": { "16": "images/icon-16.png", "32": "images/icon-32.png", "128": "images/icon-128.png" },
+  "action": { "default_title": "Bilibili 环境光", "default_popup": "popup.html" },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/*"],
+      "js": ["content.js"],
+      "css": ["theme.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://player.bilibili.com/*"],
+      "js": ["content.js"],
+      "css": ["theme.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
