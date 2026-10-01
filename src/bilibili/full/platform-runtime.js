@@ -5,6 +5,23 @@ export function biliView(player) {
   return 'SMALL';
 }
 
+export function biliIsMiniPlayer(player) {
+  return player?.dataset.screen === 'mini';
+}
+
+export async function updateMiniPlayer(engine) {
+  const active = biliIsMiniPlayer(engine.videoPlayerElem);
+  if (active === Boolean(engine.biliMiniPlayerActive)) return;
+  engine.biliMiniPlayerActive = active;
+  engine.sizesChanged = true;
+  if (active) {
+    engine.cancelScheduledRequestVideoFrame();
+    await engine.hide();
+  } else if (engine.settings.enabled && engine.isOnVideoPage) {
+    await engine.start();
+  }
+}
+
 export function biliVRSource(player) {
   return [...(player?.querySelectorAll('.bpx-player-video-wrap canvas, .webgl canvas') || [])]
     .find((canvas) => !canvas.className.includes('ambientlight') && !canvas.closest('.ambientlight') && canvas.width > 160 && canvas.height > 90 && canvas.getBoundingClientRect().width > 160);

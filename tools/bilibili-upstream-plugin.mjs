@@ -32,10 +32,11 @@ export async function bilibiliUpstreamPlugin() {
           code = code.slice(0, node.start) + replacements.get(node.key.name) + code.slice(node.end);
         }
         for (const key of replacements.keys()) if (!found.has(key)) throw new Error(`Upstream method changed: ${key}`);
-        code = `import { biliRect, biliView, biliVRSource, applyBiliPageStyles, updatePictureInPicture } from '../../bilibili/full/platform-runtime.js';\n${code}`;
+        code = `import { biliRect, biliView, biliVRSource, biliIsMiniPlayer, applyBiliPageStyles, updatePictureInPicture, updateMiniPlayer } from '../../bilibili/full/platform-runtime.js';\n${code}`;
         code = code.replace('this.videoIsPictureInPicture = true;\n        await this.optionalFrame();', 'await updatePictureInPicture(this, true);');
         code = code.replace('this.videoIsPictureInPicture = false;\n        await this.optionalFrame();', 'await updatePictureInPicture(this, false);');
-        code = code.replace('const enabledInView =', 'if (this.videoIsPictureInPicture && !this.settings.enableInPictureInPicture) return false;\n    const enabledInView =');
+        code = code.replace('const enabledInView =', 'if (biliIsMiniPlayer(this.videoPlayerElem)) return false;\n    if (this.videoIsPictureInPicture && !this.settings.enableInPictureInPicture) return false;\n    const enabledInView =');
+        code = code.replace('const viewChanged = await this.updateView();', 'await updateMiniPlayer(this);\n          const viewChanged = await this.updateView();');
         code = code.replace('parseInt(this.videoElem.style.width) || 0', 'parseInt(this.videoElem.style.width) || this.videoElem.clientWidth');
         code = code.replace('videoParentElem.style.marginBottom = `${-this.videoElem.offsetHeight}px`;', "videoParentElem.style.marginBottom = ''; // BPX uses flex centering, not YouTube's collapsed container");
         code = code.replaceAll("classList.contains('playing-mode')", "classList.contains('bpx-state-playing')");

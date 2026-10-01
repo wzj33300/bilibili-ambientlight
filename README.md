@@ -49,6 +49,8 @@ Common settings from version 0.1 migrate on first use. Spread values are convert
 
 At the top of the page, the header is transparent; after scrolling, it uses the configured background opacity. Page lighting hides during picture-in-picture by default and returns on exit. A setting can keep page lighting enabled during PiP.
 
+The scroll-triggered floating mini-player always hides ambient lighting, including while paused. Returning to the regular player restores lighting when the extension is enabled.
+
 See the [feature inventory](FEATURE-PARITY.md) for all 75 settings and platform integration details.
 
 ## Compatibility and verification
@@ -57,7 +59,7 @@ The extension supports browser-readable HTML5 video on desktop Bilibili. Real-pa
 
 HDR, VR, native fullscreen, and individual bangumi/course/embed scenarios require further real-page validation. DRM-protected or unreadable cross-origin video, `bwp-video`-only playback, closed shadow roots, live streams, and the mobile site are unsupported. Site changes and other player extensions may affect compatibility.
 
-Validation includes **15 Node tests** and **16 Chrome WebGL checks**. See [TESTING.md](TESTING.md) for test methods, version coverage, and open verification items.
+Validation includes **16 Node tests** and **21 Chrome WebGL checks**. See [TESTING.md](TESTING.md) for test methods, version coverage, and open verification items.
 
 ## Development
 

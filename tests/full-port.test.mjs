@@ -5,7 +5,7 @@ import { parse } from '@babel/parser';
 import path from 'node:path';
 import { bilibiliUpstreamPlugin } from '../tools/bilibili-upstream-plugin.mjs';
 import { LABELS } from '../src/bilibili/full/labels.js';
-import { biliView, biliRect, updatePictureInPicture } from '../src/bilibili/full/platform-runtime.js';
+import { biliView, biliRect, biliIsMiniPlayer, updatePictureInPicture, updateMiniPlayer } from '../src/bilibili/full/platform-runtime.js';
 import { migrateBasicSettings } from '../src/bilibili/full/migration.js';
 
 test('port retains upstream rendering, black-bar scheduling, frame timing and HDR core', async () => {
@@ -27,6 +27,38 @@ test('port retains upstream rendering, black-bar scheduling, frame timing and HD
   assert.match(result, /querySelector\('\.bpx-player-video-area'\)/);
   assert.match(result, /await updatePictureInPicture\(this, true\)/);
   assert.match(result, /await updatePictureInPicture\(this, false\)/);
+  assert.match(result, /await updateMiniPlayer\(this\)/);
+  assert.match(result, /if \(biliIsMiniPlayer\(this.videoPlayerElem\)\) return false/);
+});
+
+test('scroll mini-player hides immediately and only resumes enabled video pages', async () => {
+  const calls = [];
+  const player = { dataset: { screen: 'normal' } };
+  const engine = { videoPlayerElem: player, settings: { enabled: true, enableInPictureInPicture: true }, isOnVideoPage: true,
+    cancelScheduledRequestVideoFrame: () => calls.push('cancel'), hide: async () => calls.push('hide'), start: async () => calls.push('start') };
+  assert.equal(biliIsMiniPlayer(undefined), false);
+  await updateMiniPlayer(engine);
+  assert.deepEqual(calls, []);
+  player.dataset.screen = 'mini';
+  assert.equal(biliIsMiniPlayer(player), true);
+  await updateMiniPlayer(engine);
+  assert.deepEqual(calls, ['cancel', 'hide']);
+  await updateMiniPlayer(engine);
+  assert.equal(calls.length, 2);
+  player.dataset.screen = 'normal';
+  await updateMiniPlayer(engine);
+  assert.equal(calls.at(-1), 'start');
+  for (const field of ['enabled', 'isOnVideoPage']) {
+    player.dataset.screen = 'mini';
+    await updateMiniPlayer(engine);
+    const count = calls.length;
+    if (field === 'enabled') engine.settings.enabled = false;
+    else engine.isOnVideoPage = false;
+    player.dataset.screen = 'normal';
+    await updateMiniPlayer(engine);
+    assert.equal(calls.length, count);
+    engine.settings.enabled = true;
+  }
 });
 
 test('PiP immediately hides even without frames and exit only resumes enabled video pages', async () => {

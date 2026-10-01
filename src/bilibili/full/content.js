@@ -2,7 +2,7 @@ import Ambientlight from '../../scripts/libs/ambientlight.js';
 import Settings from '../../scripts/libs/settings.js';
 import { off, setErrorHandler } from '../../scripts/libs/generic.js';
 import { findVideo, isVideoPage } from '../adapter.js';
-import { applyBiliPageStyles } from './platform-runtime.js';
+import { applyBiliPageStyles, updateMiniPlayer } from './platform-runtime.js';
 import { migrateBasicSettings } from './migration.js';
 import { decorateMenu } from './menu.js';
 import { initializeLanguage, localizeSurface, translate } from './i18n.js';
@@ -65,6 +65,7 @@ async function scan() {
     engine.initVideoListeners();
   }
   engine.isOnVideoPage = true;
+  await updateMiniPlayer(engine);
   if (engine.view !== engine.getView()) {
     await engine.updateView();
     engine.sizesChanged = true;

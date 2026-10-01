@@ -6,6 +6,12 @@
 
 **Browser coverage:** Chromium, using the unpacked extension and local browser fixtures.
 
+## Scroll mini-player update
+
+The working build recognizes BPX's `data-screen="mini"` state and hides lighting immediately. The Node suite passes 16 tests, and the WebGL fixture passes 21 checks. The five added browser checks cover mini-player entry during playback with PiP lighting enabled, restoration after exit, paused entry and exit, and keeping lighting off when the extension is disabled.
+
+The updated unpacked extension also passed real Bilibili checks: scrolling into the mini-player hid lighting during both playback and pause, and returning to the regular player restored lighting in both states. No extension error appeared.
+
 ## Release checks
 
 | Check | Result | Coverage |
