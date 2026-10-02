@@ -9,6 +9,8 @@ html[data-bili-ambientlight-light] { color-scheme: light; --bg1: #fff; --bg2: #f
 html[data-ambientlight-enabled] .video-container-v1,
 html[data-ambientlight-enabled] .video-container-v2,
 html[data-ambientlight-enabled] .main-container { background: transparent !important; }
+html[data-ambientlight-enabled] .bpx-player-container,
+html[data-ambientlight-enabled] #bilibili-player-placeholder { box-shadow: none !important; }
 html[data-ambientlight-enabled] .bpx-player-video-wrap video { transform: var(--video-transform, none); }
 html[data-ambientlight-enabled] .bpx-player-video-wrap { transform-origin: center; }
 html[data-ambientlight-enabled] .ambientlight__video-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
